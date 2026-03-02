@@ -1,0 +1,12 @@
+{% extends "todo/base.html" %}
+
+{% block content %}
+<h2>{% if form.instance.pk %}Update Tag{% else %}Add Tag{% endif %}</h2>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-success">Save</button>
+    <a href="{% url 'todo:tag-list' %}" class="btn btn-secondary">Cancel</a>
+</form>
+{% endblock %}
